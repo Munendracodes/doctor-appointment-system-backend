@@ -1,5 +1,6 @@
-from sqlalchemy import select
+from sqlalchemy import Date, select
 from app.models.user import User
+from datetime import date
 
 
 class UserRepository:
@@ -13,7 +14,7 @@ class UserRepository:
         return result.scalar_one_or_none()
 
     async def create_user(self, phone: str):
-        new_user = User(mobile_number=phone)
+        new_user = User(mobile_number=phone, created_at=str(date.today()))
 
         self.db.add(new_user)
         await self.db.commit()
