@@ -9,7 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 origins = [
-    "http://localhost:5173",  # your React app
+    "http://localhost:5173",
+    "https://munendracodes.github.io",
 ]
 
 app.add_middleware(
